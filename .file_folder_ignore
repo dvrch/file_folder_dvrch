@@ -1,0 +1,18 @@
+
+# Configuration du filtre d'explorateur
+# Les lignes commençant par # sont des commentaires
+*
+# Extensions à masquer
+!(*.md)
+!(*.txt)
+!(*.pdf)
+!(*.png)
+!(*.log)
+!(*.py)
+!(*.json)
+*.ts
+
+# Dossiers à masquer
+private/
+temp/
+.cache/
