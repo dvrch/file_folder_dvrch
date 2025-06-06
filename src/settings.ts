@@ -1,5 +1,5 @@
 import { App, PluginSettingTab, Setting, Modal, FuzzySuggestModal } from "obsidian";
-import { PathSuggest } from "./suggest";
+import { PathSuggest } from "./ui/suggest";
 import { checkPathFilter, checkTagFilter, checkFrontMatterFilter, flattenObject, changeVirtualElementPin } from "./utils";
 import { wildcardMatch } from "wildcard-match";
 

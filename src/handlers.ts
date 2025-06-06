@@ -1,3 +1,7 @@
+import { App, PluginSettingTab, Setting, Modal, FuzzySuggestModal, TFile, TFolder } from "obsidian";
+import { InputFilterNameModal } from "./ui/modals";
+import { checkTagFilter, checkPathFilter } from "./utils";
+
 function addCommands(plugin) {
   plugin.addCommand({
     id: "toggle-pin-filter",
@@ -21,7 +25,7 @@ function addCommands(plugin) {
 function addCommandsToFileMenu(plugin) {
   plugin.registerEvent(
     plugin.app.workspace.on("file-menu", (menu, path) => {
-      if (path instanceof import_obsidian5.TFile) {
+      if (path instanceof TFile) {
         menu.addSeparator().addItem((item) => {
           const index = plugin.settings.pinFilters.paths.findIndex(
             (filter) => filter.patternType === "STRICT" && filter.type === "FILES" && filter.pattern === path.path
@@ -90,4 +94,16 @@ function addCommandsToFileMenu(plugin) {
       }
     })
   );
+}
+
+function addOnTagChange(plugin) {
+  // ... existing code ...
+}
+
+function addOnRename(plugin) {
+  // ... existing code ...
+}
+
+function addOnDelete(plugin) {
+  // ... existing code ...
 } 

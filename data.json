@@ -1,23 +1,9 @@
 {
   "hideStrictPathFilters": true,
   "pinFilters": {
-    "active": true,
+    "active": false,
     "tags": [],
     "paths": [
-      {
-        "name": "",
-        "active": true,
-        "type": "DIRECTORIES",
-        "pattern": "Straightforward-Obsidian2Latex/example_vault/✍Writing/Mai2025",
-        "patternType": "STRICT"
-      },
-      {
-        "name": "",
-        "active": true,
-        "type": "DIRECTORIES",
-        "pattern": "obsidian-sample-plugin",
-        "patternType": "STRICT"
-      },
       {
         "name": "",
         "active": true,
@@ -29,8 +15,8 @@
         "name": "",
         "active": true,
         "type": "FILES_AND_DIRECTORIES",
-        "pattern": "",
-        "patternType": "WILDCARD"
+        "pattern": "*.js",
+        "patternType": "REGEX"
       }
     ],
     "frontMatter": []
@@ -42,15 +28,15 @@
       {
         "name": "",
         "active": true,
-        "type": "DIRECTORIES",
-        "pattern": "Straightforward-Obsidian2Latex/example_vault/✍Writing/_minted-example_writing",
-        "patternType": "STRICT"
+        "type": "FILES_AND_DIRECTORIES",
+        "pattern": ".ts",
+        "patternType": "REGEX"
       },
       {
         "name": "",
         "active": true,
         "type": "FILES_AND_DIRECTORIES",
-        "pattern": ".json",
+        "pattern": "yaml",
         "patternType": "REGEX"
       }
     ],
