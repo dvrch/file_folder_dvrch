@@ -37,7 +37,7 @@ A plugin for Obsidian that allows you to hide files and folders in the file expl
    - Configure tag-based filters
    - Set up front matter filters
 
-# Example illustration
+### Example illustration
 
 ![Capture d'écran 025421](Capture%20d'écran%202025-06-07%20025421.png)
 
