@@ -3,7 +3,7 @@
   "name": "File Folder Dvrch",
   "version": "1.0.0",
   "minAppVersion": "1.0.0",
-  "description": "Automatically hide and pin files or folders based on patterns regex or simple",
+  "description": "Automatically hide and pin files or folders based on simple or regex patterns",
   "author": "dvrch",
   "authorUrl": "https://github.com/dvrch",
   "isDesktopOnly": false
