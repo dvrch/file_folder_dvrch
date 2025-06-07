@@ -1,21 +1,21 @@
 {
   "hideStrictPathFilters": true,
   "pinFilters": {
-    "active": false,
+    "active": true,
     "tags": [],
     "paths": [
       {
         "name": "",
-        "active": true,
+        "active": false,
         "type": "FILES_AND_DIRECTORIES",
-        "pattern": "*.ts",
+        "pattern": ".json",
         "patternType": "REGEX"
       },
       {
         "name": "",
-        "active": true,
+        "active": false,
         "type": "FILES_AND_DIRECTORIES",
-        "pattern": "*.js",
+        "pattern": "lint",
         "patternType": "REGEX"
       }
     ],
@@ -27,16 +27,16 @@
     "paths": [
       {
         "name": "",
-        "active": true,
+        "active": false,
         "type": "FILES_AND_DIRECTORIES",
-        "pattern": ".ts",
+        "pattern": ".mjs",
         "patternType": "REGEX"
       },
       {
         "name": "",
-        "active": true,
+        "active": false,
         "type": "FILES_AND_DIRECTORIES",
-        "pattern": "yaml",
+        "pattern": "ype",
         "patternType": "REGEX"
       }
     ],

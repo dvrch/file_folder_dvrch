@@ -2,7 +2,7 @@ import { App, PluginSettingTab, Setting, Modal, FuzzySuggestModal, TFile, TFolde
 import { InputFilterNameModal } from "./ui/modals";
 import { checkTagFilter, checkPathFilter } from "./utils";
 
-function addCommands(plugin) {
+export function addCommands(plugin) {
   plugin.addCommand({
     id: "toggle-pin-filter",
     name: "Toggle pin filter",
@@ -20,15 +20,22 @@ function addCommands(plugin) {
       (_a = plugin.getFileExplorer()) == null ? void 0 : _a.requestSort();
     }
   });
+  plugin.addCommand({
+    id: "reload-ignore-file",
+    name: "Reload .file_folder_ignore",
+    callback: () => {
+      plugin.patchFileExplorer();
+    }
+  });
 }
 
-function addCommandsToFileMenu(plugin) {
+export function addCommandsToFileMenu(plugin) {
   plugin.registerEvent(
-    plugin.app.workspace.on("file-menu", (menu, path) => {
-      if (path instanceof TFile) {
+    plugin.app.workspace.on("file-menu", (menu, file) => {
+      if (file instanceof TFile || file instanceof TFolder) {
         menu.addSeparator().addItem((item) => {
           const index = plugin.settings.pinFilters.paths.findIndex(
-            (filter) => filter.patternType === "STRICT" && filter.type === "FILES" && filter.pattern === path.path
+            (filter) => filter.patternType === "STRICT" && filter.type === "FILES" && filter.pattern === file.path
           );
           if (index === -1 || !plugin.settings.pinFilters.paths[index].active) {
             item.setTitle("Pin File").setIcon("pin").onClick(() => {
@@ -38,7 +45,7 @@ function addCommandsToFileMenu(plugin) {
                   name: "",
                   active: true,
                   type: "FILES",
-                  pattern: path.path,
+                  pattern: file.path,
                   patternType: "STRICT"
                 });
               } else {
@@ -61,7 +68,7 @@ function addCommandsToFileMenu(plugin) {
       } else {
         menu.addSeparator().addItem((item) => {
           const index = plugin.settings.pinFilters.paths.findIndex(
-            (filter) => filter.patternType === "STRICT" && filter.type === "DIRECTORIES" && filter.pattern === path.path
+            (filter) => filter.patternType === "STRICT" && filter.type === "DIRECTORIES" && filter.pattern === file.path
           );
           if (index === -1 || !plugin.settings.pinFilters.paths[index].active) {
             item.setTitle("Pin Folder").setIcon("pin").onClick(() => {
@@ -71,7 +78,7 @@ function addCommandsToFileMenu(plugin) {
                   name: "",
                   active: true,
                   type: "DIRECTORIES",
-                  pattern: path.path,
+                  pattern: file.path,
                   patternType: "STRICT"
                 });
               } else {
@@ -90,6 +97,19 @@ function addCommandsToFileMenu(plugin) {
               (_a = plugin.getFileExplorer()) == null ? void 0 : _a.requestSort();
             });
           }
+        });
+      }
+    })
+  );
+  plugin.registerEvent(
+    plugin.app.workspace.on("file-menu", (menu, file) => {
+      if (file instanceof TFile || file instanceof TFolder) {
+        menu.addSeparator().addItem((item) => {
+          item.setTitle("Reload .file_folder_ignore")
+            .setIcon("refresh-cw")
+            .onClick(() => {
+              plugin.patchFileExplorer();
+            });
         });
       }
     })
