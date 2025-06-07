@@ -1,9 +1,9 @@
 {
-  "id": "file_folder_ignore",
-  "name": "File Folder Ignore",
+  "id": "file_folder_dvrch",
+  "name": "File Folder Dvrch",
   "version": "1.0.0",
-  "minAppVersion": "1.6.3",
-  "description": "Automatically hide files and folders based on patterns defined in a .file_folder_ignore file.",
+  "minAppVersion": "1.0.0",
+  "description": "Automatically hide and pin files or folders based on patterns regex or simple",
   "author": "dvrch",
   "authorUrl": "https://github.com/dvrch",
   "isDesktopOnly": false
