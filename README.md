@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # File Folder Ignore
 
 A plugin for Obsidian that allows you to hide files and folders in the file explorer based on patterns similar to .gitignore.
@@ -57,3 +58,7 @@ For issues, feature requests, or questions, please [open an issue](https://githu
 ![[c:\Users\dvrch\Pictures\Screenshots\Capture d'écran 2025-06-07 025421.png]]
 
 ![[c:\Users\dvrch\Pictures\Screenshots\Capture d'écran 2025-06-07 025335.png]]
+=======
+# file_folder_dvrch
+cacher fichiers ou dossier de l'eplorateur via regex ou simple
+>>>>>>> e95d4b4ffd9697341a90cd209f3d64e3b22c1664
