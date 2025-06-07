@@ -251,58 +251,45 @@ const FILE_FOLDER_IGNORE_DEFAULT_SETTINGS = {
 };
 
 export class FileFolderIgnoreSettingTab extends PluginSettingTab {
-  plugin: any;
+  plugin: FileFolderIgnorePlugin;
 
-  constructor(app: App, plugin: any) {
+  constructor(app: App, plugin: FileFolderIgnorePlugin) {
     super(app, plugin);
     this.plugin = plugin;
   }
 
   display(): void {
-    this.containerEl.empty();
-    this.containerEl.addClass("file-folder-ignore");
+    const { containerEl } = this;
+    containerEl.empty();
 
-    this.containerEl.createEl("h2", { text: "Pin Filters" });
+    containerEl.createEl('h2', { text: 'File Folder Ignore Settings' });
 
-    new Setting(this.containerEl)
-      .setName("Enable pin filters")
-      .setDesc("Toggle whether or not pin filters for paths and folders should be active.")
-      .addToggle((toggle) => {
-        toggle.setTooltip("Active")
-          .setValue(this.plugin.settings.pinFilters.active)
-          .onChange(async (isActive) => {
-            this.plugin.settings.pinFilters.active = isActive;
-            await this.plugin.saveSettings();
-            this.plugin.getFileExplorer()?.requestSort();
-          });
-      });
+    // Pin Filters Section
+    new Setting(containerEl)
+      .setName('Enable Pin Filters')
+      .setDesc('Toggle whether pin filters are active')
+      .addToggle(toggle => toggle
+        .setValue(this.plugin.settings.pinFilters.active)
+        .onChange(async (value) => {
+          this.plugin.settings.pinFilters.active = value;
+          await this.plugin.saveSettings();
+        }));
 
-    new Setting(this.containerEl)
-      .setName("Hide strict path filters in settings")
-      .setDesc("Hide path filters with type strict from the pin filter tables below. Good for decluttering the filter tables. These are created when pinning a file straight in the file explorer.")
-      .addToggle((toggle) => {
-        toggle.setTooltip("Active")
-          .setValue(this.plugin.settings.hideStrictPathFilters)
-          .onChange(async (isActive) => {
-            this.plugin.settings.hideStrictPathFilters = isActive;
-            await this.plugin.saveSettings();
-            this.display();
-          });
-      });
+    // Hide Filters Section
+    new Setting(containerEl)
+      .setName('Enable Hide Filters')
+      .setDesc('Toggle whether hide filters are active')
+      .addToggle(toggle => toggle
+        .setValue(this.plugin.settings.hideFilters.active)
+        .onChange(async (value) => {
+          this.plugin.settings.hideFilters.active = value;
+          await this.plugin.saveSettings();
+        }));
 
-    new Setting(this.containerEl)
-      .setName("View paths pinned by filters")
-      .setDesc("View paths that are currently being pinned by the active filters below.")
-      .addButton((button) => {
-        button.setButtonText("View")
-          .onClick(() => {
-            new PathsActivatedModal(this.plugin, "PIN").open();
-          });
-      });
-
-    this.pinTagFiltersSettings();
-    this.pinPathFiltersSettings();
-    this.pinFrontMatterFiltersSettings();
+    // Path Filters Section
+    this.pinPathFiltersSettings(containerEl);
+    this.pinTagFiltersSettings(containerEl);
+    this.pinFrontMatterFiltersSettings(containerEl);
   }
 
   cleanSettings() {
@@ -575,4 +562,4 @@ export class FileFolderIgnoreSettingTab extends PluginSettingTab {
           });
       });
   }
-} 
+}

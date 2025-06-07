@@ -6,14 +6,14 @@
     "paths": [
       {
         "name": "",
-        "active": false,
+        "active": true,
         "type": "FILES_AND_DIRECTORIES",
         "pattern": ".json",
         "patternType": "REGEX"
       },
       {
         "name": "",
-        "active": false,
+        "active": true,
         "type": "FILES_AND_DIRECTORIES",
         "pattern": "lint",
         "patternType": "REGEX"
@@ -27,14 +27,14 @@
     "paths": [
       {
         "name": "",
-        "active": false,
+        "active": true,
         "type": "FILES_AND_DIRECTORIES",
         "pattern": ".mjs",
         "patternType": "REGEX"
       },
       {
         "name": "",
-        "active": false,
+        "active": true,
         "type": "FILES_AND_DIRECTORIES",
         "pattern": "ype",
         "patternType": "REGEX"
