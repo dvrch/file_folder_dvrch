@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # File Folder Ignore
 
-A plugin for Obsidian that allows you to hide files and folders in the file explorer based on patterns similar to .gitignore.
-
+A plugin for Obsidian that allows you to hide files and folders in the file explorer on sinmpler patterns or regex
 ## Features
 
 - Hide files and folders based on regex or simple patterns
@@ -38,6 +36,10 @@ A plugin for Obsidian that allows you to hide files and folders in the file expl
    - Configure tag-based filters
    - Set up front matter filters
 
+![[c:\Users\dvrch\Pictures\Screenshots\Capture d'écran 2025-06-07 025421.png]]
+
+![[c:\Users\dvrch\Pictures\Screenshots\Capture d'écran 2025-06-07 025335.png]]
+
 ### Pattern Types
 
 - **Regex**: Use regular expressions for complex pattern matching
@@ -55,7 +57,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For issues, feature requests, or questions, please [open an issue](https://github.com/dvrch/file_folder_dvrch/issues) on GitHub.
 
-![[c:\Users\dvrch\Pictures\Screenshots\Capture d'écran 2025-06-07 025421.png]]
 
 ![[c:\Users\dvrch\Pictures\Screenshots\Capture d'écran 2025-06-07 025335.png]]
 
